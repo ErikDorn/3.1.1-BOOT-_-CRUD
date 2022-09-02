@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head >
+    <h1><big><ins>ИЗМЕНИТЬ ДАННЫЕ</ins></big></h1>
+    <meta charset="utf-8" />
+</head>
+<body  style="background-color: gainsboro"
+        th:width="90" th:height="90"
+        border="2" cellspacing="7"
+        cellpadding="4" align="center">
+    <form th:action="@{/edit}" th:object="${user}" method="post">
+        <p><input type="hidden" th:field="*{id}" /></p>
+
+        <p><label for="name"><big>ИМЯ</big></label></p>
+        <p><input type="text" th:field="*{name}" id="name" value="name" required></p>
+
+        <p><label for="lastname"><big>ФАМИЛИЯ</big></label></p>
+        <p><input type="text" th:field="*{lastname}" id="lastname" value="lastname" required></p>
+
+        <p><label for="age"><big>ВОЗРАСТ</big></label></p>
+        <p><input type="number" th:field="*{age}" id="age" value="age" required></p>
+
+        <p><label for="city"><big>ГОРОД</big></label></p>
+        <p><input type="text" th:field="*{city}" id="city" value="city" required></p>
+
+        <p>
+            <input type="submit" value="ИЗМЕНИТЬ ДАННЫЕ">
+        </p>
+
+    </form>
+</body>
+</html>

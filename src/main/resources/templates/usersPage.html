@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <title>ТАБЛИЦА ПОЛЬЗОВАТЕЛЕЙ</title>
+</head >
+
+<body style="background-color: gainsboro"
+      th:width="90" th:height="90"
+      th:border="2" th:cellspacing="7"
+      th:cellpadding="4" th:align="center"
+>
+
+    <thead>
+    <tr > <strong><p style="font-size:24pt">ТАБЛИЦА ПОЛЬЗОВАТЕЛЕЙ</p></strong></tr>
+    </thead>
+    <table th:width="90" th:height="90" border="2"
+           cellspacing="7" cellpadding="4" align="center"><tbody>
+    <tr>
+        <th><big>ID</big></th>
+        <th><big>ИМЯ</big></th>
+        <th><big>ФАМИЛИЯ</big></th>
+        <th><big>ВОЗРАСТ</big></th>
+        <th><big>ГОРОД</big></th>
+        <th><big>ДЕЙСТВИЕ</big></th>
+   </tr>
+    <tr th:each="user : ${usersList}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.lastname}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.city}"></td>
+        <td>
+            <a th:href="@{'/edit/'+${user.id}}"><big>ИЗМЕНИТЬ/</big></a>
+            <a th:href="@{'/delete/'+${user.id}}"><big>УДАЛИТЬ</big></a>
+        </td>
+    </tr>
+    </tbody><table>
+</table>
+<h2><big></big></h2>
+<a th:href="@{'/add'}"><big>СОЗДАТЬ ПОЛЬЗОВАТЕЛЯ</big></a>
+</body>
+</html>
